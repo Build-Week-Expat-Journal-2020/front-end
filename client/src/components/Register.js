@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import styled from 'styled-components'
 import { Link, useHistory } from 'react-router-dom'
 import { StyledRegister } from '../StyledComponents/StyledRegister'
+import axios from 'axios'
 
 // --- Needs form to register user
 // --- Unit 2 do JSX with local state
@@ -26,19 +27,15 @@ const handleChange = (e) => {
     })
 }
 
+// const getUsers = () => {
+//     axios.
+// }
+
 const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(newUser)
-    registerUser(newUser)
+    registerUser({newUser})
     setNewUser(initialValues)
-
-    const responseCallback = res => {
-        localStorage.setItem('token', res.data.token)
-        console.log(res.data)
-        history.push('/')
-    }
-
-    registerUser({newUser, responseCallback})
+    history.push('/')
 
 }
 
