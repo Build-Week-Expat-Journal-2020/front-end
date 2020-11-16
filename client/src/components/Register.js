@@ -5,6 +5,8 @@ import { Link, useHistory } from 'react-router-dom'
 import { StyledRegister } from '../StyledComponents/StyledRegister'
 import axios from 'axios'
 import { registerFormSchema } from '../validation/registerFormSchema';
+import * as yup from 'yup'
+
 // --- Needs form to register user
 // --- Unit 2 do JSX with local state
 // --- for formValues and form validations
@@ -50,7 +52,6 @@ setNewUser({...newUser,[name]:value})
         ...newUser, 
         [e.target.name]: e.target.value
     })
-}
 
 useEffect(()=>{
     schema.isValid(newUser).then(valid=>{
@@ -94,7 +95,7 @@ return (
             </div> 
         </div>
     </StyledRegister>
-)
+    )
 }
 
 export default connect(null, { registerUser })(Register)
