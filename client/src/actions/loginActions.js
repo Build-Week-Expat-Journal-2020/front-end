@@ -6,8 +6,6 @@ export const login = (user, responseCallback) => {
 
     return(dispatch) => {
 
-        
-
         axiosWithAuth()
             .post('/login', user)
             .then(res => {
