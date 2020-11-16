@@ -5,6 +5,7 @@ const StyledFeed = styled.div `
 
 `
 const HomeFeed = () => {
+
     return (
         <StyledFeed>This is your home feed</StyledFeed>
     )

@@ -13,7 +13,7 @@ export const registerUser = ({newUser}) => {
             console.log('data', res.data)
         })
         .catch(err => {
-            console.log(err)
+            console.log(err.response)
         })
     }
 }
