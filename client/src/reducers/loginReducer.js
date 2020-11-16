@@ -1,11 +1,18 @@
+import React, { useState } from 'react';
+import { LOGIN } from '../actions/loginActions';
+
 
 const initialState = {
-
+    currentUser : {}
 }
-
 
 export const loginReducer = (state = initialState, action) => {
     switch (action.type) {
+        case LOGIN:
+            return {
+                ...state,
+                currentUser: action.payload
+            }
         default:
             return state;
     }
