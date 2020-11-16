@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { Link, useHistory } from 'react-router-dom'
 import { StyledRegister } from '../StyledComponents/StyledRegister'
 import axios from 'axios'
-
+import { registerFormSchema } from '../validation/registerFormSchema';
 // --- Needs form to register user
 // --- Unit 2 do JSX with local state
 // --- for formValues and form validations
@@ -16,20 +16,47 @@ const initialValues = {
     password: '',
 }
 
+const initialErrors = {
+    username: '',
+    password: ''
+}
+
 const Register = ({ registerUser }) => {
 const [newUser, setNewUser] = useState(initialValues)
+const [disabled,setDisabled] = useState(true);
+const [errors,setErrors] = useState(initialErrors);
 const history = useHistory()
 
 const handleChange = (e) => {
+//Validation Changes
+    const {name,value}=evt.target;
+
+yup.reach(schema,name)
+.validate(value)
+.then(()=>{
+   setErrors({
+      ...errors,[name]: '',
+})
+})
+.catch((err)=>{
+    setErrors({
+        ...errors,[name]:err.errors[0]
+    })
+})
+setNewUser({...newUser,[name]:value})
+}
+//End Validation Changes
     setNewUser({
         ...newUser, 
         [e.target.name]: e.target.value
     })
 }
 
-// const getUsers = () => {
-//     axios.
-// }
+useEffect(()=>{
+    schema.isValid(newUser).then(valid=>{
+        setDisabled(!valid);
+    });
+    },[newUser])
 
 const handleSubmit = (e) => {
     e.preventDefault()
@@ -53,6 +80,7 @@ return (
                 value={newUser.username}
                 onChange={handleChange}
                 />
+                <p>{errors.username}</p>
                 <input 
                 type='text'
                 name='password'
@@ -60,6 +88,7 @@ return (
                 value={newUser.password}
                 onChange={handleChange}
                 />
+                <p>{errors.password}</p>
                 <button className='submit'>sign up</button>
                 </form>
             </div> 
