@@ -1,4 +1,4 @@
-import { ADD_USER, SET_USERS } from '../actions/registerActions'
+import { REGISTER_USER } from '../actions/registerActions'
 
 const initialState = {
     users: [],
@@ -7,12 +7,7 @@ const initialState = {
 
 export const registerReducer = (state = initialState, action) => {
     switch (action.type) {
-        case ADD_USER: 
-            return {
-                ...state, 
-                users: action.payload
-            }
-        case SET_USERS: 
+        case REGISTER_USER: 
             return {
                 ...state, 
                 users: action.payload
