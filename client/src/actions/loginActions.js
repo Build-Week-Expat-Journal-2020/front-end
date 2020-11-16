@@ -1,21 +1,20 @@
 import axiosWithAuth from '../utils/axiosWithAuth';
-import { useHistory } from 'react-router-dom'
 
 export const LOGIN = "LOGIN";
 
-export const login = (user, responseCallback) => {
-
+export const login = (user) => {
   
     return(dispatch) => {
 
         axiosWithAuth()
-            .post('/login', user)
+            .post('/auth/login', user)
             .then(res => {
+                console.log(user)
                 localStorage.setItem("token", res.data.payload);
-                dispatch({ type: LOGIN, payload: res.data });  
-                responseCallback(res);  
+                dispatch({ type: LOGIN, payload: res.data }); 
+                console.log('data', res.data) 
             })
-            .catch(err => console.log(err))
+            .catch(err => console.log(err.response))
     };
 }   
 

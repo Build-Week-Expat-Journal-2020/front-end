@@ -10,14 +10,12 @@ import { StyledLogin } from '../StyledComponents/StyledLogin'
 // --- Unit 2 do JSX with local state
 // --- for formValues
 
-
-
 const initialValues = {
     username: '', 
     password: ''
 }
 
-const Login = () => {
+const Login = ({ login }) => {
     const [formValues, setFormValues] = useState(initialValues);
     const { push } = useHistory();
 
@@ -30,15 +28,9 @@ const handleChange = e => {
 
 const handleSubmit = e => {
     e.preventDefault();
-    const user = {
-        email: formValues.username,
-        password: formValues.password
-    }
-    const responseCallback = () => {
-        push('/homefeed'); 
-    }
-   
-    login({ user, responseCallback });
+    login(formValues)
+    push('/homefeed')
+    
 };
 
         return (
@@ -74,8 +66,6 @@ const handleSubmit = e => {
         </StyledLogin>
     )
 }
-
-
 
 export default connect(null, { login })(Login);
 

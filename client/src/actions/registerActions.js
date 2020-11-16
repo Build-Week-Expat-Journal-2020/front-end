@@ -3,16 +3,15 @@ import axiosWithAuth from '../utils/axiosWithAuth'
 
 export const REGISTER_USER = 'REGISTER_USER'
 
-export const registerUser = ({newUser, responseCallback}) => {
+export const registerUser = ({newUser}) => {
     return(dispatch) => {
 
         axiosWithAuth()
-        .post('/users', newUser)
+        .post('/auth/register', newUser)
         .then(res => {
-            console.log(res.data)
             dispatch({type: REGISTER_USER, payload: res.data})
-            responseCallback(res)
-        }, [])
+            console.log('data', res.data)
+        })
         .catch(err => {
             console.log(err)
         })
