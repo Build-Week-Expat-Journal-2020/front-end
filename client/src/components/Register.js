@@ -2,65 +2,22 @@ import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
 import { Link, useHistory } from 'react-router-dom'
+import { StyledRegister } from '../StyledComponents/StyledRegister'
 
 // --- Needs form to register user
 // --- Unit 2 do JSX with local state
 // --- for formValues and form validations
 
-import { addUser } from '../actions/registerActions'
-
-
-const StyledRegister = styled.div`
-
-    .container {
-        background-color: black;
-        height: 100vh;
-    }
-
-    .addUserForm {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin-top: 5%;
-        color: white;
-    }
-
-    .addUserForm p {
-        width: 25rem;
-        text-align: center;
-    }
-
-    form {
-        display: flex;
-        flex-direction: column;
-        margin: 2%;
-        width: 25rem;
-    }
-
-    input, button {
-        padding: 3%;
-        margin: 1%;
-    }
-
-    .submit {
-        background-color: #1E90FF;
-        border: none;
-        color: white;
-        padding: 4%;
-        border-radius: 0.3rem;
-    }
-
-`
+import { registerUser } from '../actions/registerActions'
 
 const initialValues = {
     username: '',
     password: '',
 }
 
-const Register = ({ addUser }) => {
+const Register = ({ registerUser }) => {
 const [newUser, setNewUser] = useState(initialValues)
-const hisoty = useHistory()
+const history = useHistory()
 
 const handleChange = (e) => {
     setNewUser({
@@ -71,13 +28,18 @@ const handleChange = (e) => {
 
 const handleSubmit = (e) => {
     e.preventDefault()
-    addUser(newUser)
+    console.log(newUser)
+    registerUser(newUser)
     setNewUser(initialValues)
 
-}
+    const responseCallback = res => {
+        localStorage.setItem('token', res.data.token)
+        console.log(res.data)
+        history.push('/')
+    }
 
-const responseCallback = res => {
-    localStorage.setItem('token', res.data.token)
+    registerUser({newUser, responseCallback})
+
 }
 
 return (
@@ -109,10 +71,4 @@ return (
 )
 }
 
-const mapStateToProps = (state) => {
-    return {
-        users: state.users
-    }
-}
-
-export default connect(mapStateToProps, { addUser })(Register)
+export default connect(null, { registerUser })(Register)

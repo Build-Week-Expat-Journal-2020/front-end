@@ -1,12 +1,12 @@
 import axiosWithAuth from '../utils/axiosWithAuth';
+import { useHistory } from 'react-router-dom'
 
 export const LOGIN = "LOGIN";
 
-export const login = (user, responseCallback) => {
+const login = (user, responseCallback) => {
 
+  
     return(dispatch) => {
-
-        
 
         axiosWithAuth()
             .post('/login', user)

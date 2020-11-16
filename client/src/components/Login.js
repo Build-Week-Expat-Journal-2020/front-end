@@ -1,7 +1,11 @@
+// export default connect(null, { login })(Login);
+
 import React, { useState } from "react";
 import { login } from '../actions/loginActions';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+
+import { StyledLogin } from '../StyledComponents/StyledLogin'
 
 // --- Needs Login Form 
 // --- Unit 2 do JSX with local state
@@ -38,30 +42,41 @@ const handleSubmit = e => {
     login({ user, responseCallback });
 };
 
-    return (
-        <div>
-            <form onSubmit={handleSubmit}>
-                <input
-                type="text"
-                name="username"
-                value={formValues.username}
-                placeholder="username"
-                onChange={handleChange}
-                />
-                <input
-                type="password"
-                name="password"
-                value={formValues.password}
-                placeholder="password"
-                onChange={handleChange}
-                />
-                <button>Login</button>
-            </form>
-            <button onClick={()=>{push('/register')}}>Register</button>
-        </div>
+        return (
+        <StyledLogin>
+            <div className='container'>
+                <div className='loginForm'>
+                <h3>Expat</h3>
+                <form onSubmit={handleSubmit}>
+                    <input
+                    type="text"
+                    name="name"
+                    value={formValues.credentials.username}
+                    placeholder="username"
+                    onChange={handleChange}
+                    />
+                    <input
+                    type="password"
+                    name="password"
+                    value={formValues.credentials.password}
+                    placeholder="password"
+                    onChange={handleChange}
+                    />
+                    <button>Login</button>
+                    <div className='span'>
+                        <p>Don't have an account? </p>
+                        <Link className='signUpLink' to='/register'>Sign Up</Link>
+                    </div>
+                
+                </form>
+
+                </div>
+            </div>
+        </StyledLogin>
     )
 }
 
 
 
 export default connect(null, { login })(Login);
+
