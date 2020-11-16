@@ -51,6 +51,7 @@ const handleChange = (evt) => {
     
 //End Validation Changes
 
+
 } // END HANDLE CHANGES
 
 useEffect(()=>{
@@ -95,7 +96,7 @@ return (
             </div> 
         </div>
     </StyledRegister>
-)
+    )
 }
 
 

@@ -1,13 +1,26 @@
 import styled from 'styled-components';
+import { StyledFeed } from '../StyledComponents/StyledPosts'
 
-const StyledFeed = styled.div `
-    color: white;
+import { useHistory, Link } from 'react-router-dom';
+import { getPosts } from '../actions/postsActions'
 
-`
-const HomeFeed = () => {
+const HomeFeed = ({ getPosts }) => {
+
+    const { push } = useHistory();
+
+    const handleChange = () => {
+        console.log('change!')
+        // getPosts()
+    }
 
     return (
-        <StyledFeed>This is your home feed</StyledFeed>
+        <StyledFeed>
+            <div className='container'>
+                <p>expat </p>
+                <button onClick={handleChange} className='loadFeed'>load feed</button>
+            </div>
+        </StyledFeed>
+        
     )
 }
 
