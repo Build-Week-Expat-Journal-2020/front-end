@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Register from './components/Register'
 import './App.css';
 import PrivateRoute from './utils/PrivateRoute';
 
