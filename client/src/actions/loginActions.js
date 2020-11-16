@@ -2,14 +2,16 @@ import axiosWithAuth from '../utils/axiosWithAuth';
 
 export const LOGIN = "LOGIN";
 
-export const login = () => {
+export const login = (user, responseCallback) => {
 
     return(dispatch) => {
-        dispatch ({ type: LOGIN });
+
+        
 
         axiosWithAuth()
-            .post('/login', credentials)
+            .post('/login', user)
             .then(res => {
+                localStorage.setItem("token", res.data.payload);
                 dispatch({ type: LOGIN, payload: res.data });  
                 responseCallback(res);  
             })
