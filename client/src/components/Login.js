@@ -3,8 +3,7 @@
 import React, { useState } from "react";
 import { login } from '../actions/loginActions';
 import { connect } from 'react-redux';
-import { useHistory } from 'react-router-dom';
-
+import { useHistory, Link } from 'react-router-dom';
 import { StyledLogin } from '../StyledComponents/StyledLogin'
 
 // --- Needs Login Form 
@@ -50,15 +49,15 @@ const handleSubmit = e => {
                 <form onSubmit={handleSubmit}>
                     <input
                     type="text"
-                    name="name"
-                    value={formValues.credentials.username}
+                    name="username"
+                    value={formValues.username}
                     placeholder="username"
                     onChange={handleChange}
                     />
                     <input
                     type="password"
                     name="password"
-                    value={formValues.credentials.password}
+                    value={formValues.password}
                     placeholder="password"
                     onChange={handleChange}
                     />
