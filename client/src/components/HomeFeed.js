@@ -1,8 +1,12 @@
+import styled from 'styled-components';
 
+const StyledFeed = styled.div `
+    color: white;
 
+`
 const HomeFeed = () => {
     return (
-        <div>This is your home feed</div>
+        <StyledFeed>This is your home feed</StyledFeed>
     )
 }
 
