@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom'
 
 export const LOGIN = "LOGIN";
 
-const login = (user, responseCallback) => {
+export const login = (user, responseCallback) => {
 
   
     return(dispatch) => {
