@@ -3,15 +3,17 @@ import { useHistory } from 'react-router-dom'
 
 export const LOGIN = "LOGIN";
 
-export const login = () => {
-    
+const login = (user, responseCallback) => {
+
+  
     return(dispatch) => {
-        dispatch ({ type: LOGIN });
 
         axiosWithAuth()
-            .post('/auth/login')
+            .post('/login', user)
             .then(res => {
-                dispatch({ type: LOGIN, payload: res.data });    
+                localStorage.setItem("token", res.data.payload);
+                dispatch({ type: LOGIN, payload: res.data });  
+                responseCallback(res);  
             })
             .catch(err => console.log(err))
     };

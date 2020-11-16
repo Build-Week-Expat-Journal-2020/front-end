@@ -4,6 +4,9 @@ import HomeFeed from './components/HomeFeed'
 import Header from './components/Header'
 import Login from './components/Login'
 import PrivateRoute from './utils/PrivateRoute';
+import Login from './components/Login';
+import HomeFeed from './components/HomeFeed';
+import Header from './components/Header';
 
 import { Link } from 'react-router-dom'
 
