@@ -31,14 +31,11 @@ const handleSubmit = e => {
         email: formValues.username,
         password: formValues.password
     }
-    
-
-const responseCallback = res => {
-    localStorage.setItem("token", res.data.token);
-    push('/homefeed');
-}
-
-login({ user, responseCallback });
+    const responseCallback = () => {
+        push('/homefeed'); 
+    }
+   
+    login({ user, responseCallback });
 };
 
     return (
