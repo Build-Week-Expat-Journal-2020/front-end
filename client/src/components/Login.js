@@ -6,49 +6,61 @@ import { useHistory } from 'react-router-dom';
 // --- Needs Login Form 
 // --- Unit 2 do JSX with local state
 // --- for formValues
+
+
+
 const initialValues = {
-    credentials: {username: '', password: ''}
+    username: '', 
+    password: ''
 }
 
 const Login = () => {
     const [formValues, setFormValues] = useState(initialValues);
     const { push } = useHistory();
 
-    handleChange = e => {
+const handleChange = e => {
         setFormValues({
-            credentials: {
-              ...formValues.credentials,
+              ...formValues,
               [e.target.name]: e.target.value
-            }
           });
     };
 
-    handleSubmit = e => {
-        e.preventDefault();
-        login(formValues.credentials);
-        localStorage.setItem("token", res.data.payload);
-        push('/homefeed');
-    };
+const handleSubmit = e => {
+    e.preventDefault();
+    const user = {
+        email: formValues.username,
+        password: formValues.password
+    }
+    
+
+const responseCallback = res => {
+    localStorage.setItem("token", res.data.token);
+    push('/homefeed');
+}
+
+login({ user, responseCallback });
+};
 
     return (
         <div>
             <form onSubmit={handleSubmit}>
                 <input
                 type="text"
-                name="name"
-                value={formValues.credentials.username}
-                placeholder="name"
+                name="username"
+                value={formValues.username}
+                placeholder="username"
                 onChange={handleChange}
                 />
                 <input
                 type="password"
                 name="password"
-                value={formValues.credentials.password}
-                placeholder="name"
+                value={formValues.password}
+                placeholder="password"
                 onChange={handleChange}
                 />
                 <button>Login</button>
             </form>
+            <button onClick={()=>{push('/register')}}>Register</button>
         </div>
     )
 }

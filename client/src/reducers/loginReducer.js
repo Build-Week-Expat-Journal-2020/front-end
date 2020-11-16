@@ -1,6 +1,4 @@
-import React, { useState } from 'react';
 import { LOGIN } from '../actions/loginActions';
-
 
 const initialState = {
     currentUser : {}
