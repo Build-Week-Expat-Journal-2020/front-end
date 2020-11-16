@@ -4,7 +4,9 @@ import styled from 'styled-components'
 import { Link, useHistory } from 'react-router-dom'
 import { StyledRegister } from '../StyledComponents/StyledRegister'
 import axios from 'axios'
-import { registerFormSchema } from '../validation/registerFormSchema';
+import * as yup from 'yup'
+import schema from '../validation/registerFormSchema'
+
 // --- Needs form to register user
 // --- Unit 2 do JSX with local state
 // --- for formValues and form validations
@@ -22,41 +24,40 @@ const initialErrors = {
 }
 
 const Register = ({ registerUser }) => {
+//state    
 const [newUser, setNewUser] = useState(initialValues)
 const [disabled,setDisabled] = useState(true);
 const [errors,setErrors] = useState(initialErrors);
 const history = useHistory()
 
-const handleChange = (e) => {
+const handleChange = (evt) => {
 //Validation Changes
     const {name,value}=evt.target;
 
-yup.reach(schema,name)
-.validate(value)
-.then(()=>{
-   setErrors({
-      ...errors,[name]: '',
-})
-})
-.catch((err)=>{
-    setErrors({
+    yup.reach(schema,name)
+    .validate(value)
+    .then(()=>{
+        setErrors({
+        ...errors,[name]: '',
+        })
+    })
+    .catch((err)=>{
+        setErrors({
         ...errors,[name]:err.errors[0]
+        })
     })
-})
-setNewUser({...newUser,[name]:value})
-}
+
+    setNewUser({...newUser,[name]:value})
+    
 //End Validation Changes
-    setNewUser({
-        ...newUser, 
-        [e.target.name]: e.target.value
-    })
-}
+
+} // END HANDLE CHANGES
 
 useEffect(()=>{
     schema.isValid(newUser).then(valid=>{
         setDisabled(!valid);
     });
-    },[newUser])
+},[newUser])
 
 const handleSubmit = (e) => {
     e.preventDefault()
@@ -82,7 +83,7 @@ return (
                 />
                 <p>{errors.username}</p>
                 <input 
-                type='text'
+                type='password'
                 name='password'
                 placeholder='password'
                 value={newUser.password}
@@ -96,5 +97,6 @@ return (
     </StyledRegister>
 )
 }
+
 
 export default connect(null, { registerUser })(Register)

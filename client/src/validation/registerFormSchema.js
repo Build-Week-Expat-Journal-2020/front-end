@@ -1,6 +1,6 @@
 import * as yup from 'yup';
 
-export default yup.object().shape({
+export  default yup.object().shape({
     username: yup
     .string()
     .required("Username is required")
@@ -10,3 +10,5 @@ export default yup.object().shape({
     .required('Password is required')
     .min(5,"Minimum length is 5")
 }) 
+
+//export default registerFormSchema;
