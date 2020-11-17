@@ -18,6 +18,16 @@ const HomeFeed = (props) => {
             <div className='container'>
                 <p>expat </p>
                 <button className='loadFeed'>load feed</button>
+                <div className='postsContainer'>
+                {console.log('posts', props.posts)}
+                {props.posts.map(post => {
+                    return (
+                        <div>
+                        <img width='200px' src={post.photo}/>
+                        </div>
+                    )
+                })}
+                </div>
             </div>
         </StyledFeed>
     )

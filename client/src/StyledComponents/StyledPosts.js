@@ -22,4 +22,9 @@ export const StyledFeed = styled.div `
 
     }
 
+    .postsContainer {
+        display: flex;
+        flex-wrap: wrap;
+   }
+
 `

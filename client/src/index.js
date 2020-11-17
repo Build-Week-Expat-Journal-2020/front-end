@@ -5,11 +5,11 @@ import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 
 import App from './App';
-import rootReducer from './reducers';
+import { reducer } from './reducers'
 
 import './index.css';
 
-const store = createStore(rootReducer, applyMiddleware(thunk));
+const store = createStore(reducer, applyMiddleware(thunk));
 
 const rootElement = document.getElementById('root');
 
