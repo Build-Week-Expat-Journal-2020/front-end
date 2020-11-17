@@ -1,27 +1,23 @@
-import styled from 'styled-components';
 import { StyledFeed } from '../StyledComponents/StyledPosts'
-
-import { useHistory, Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import { getPosts } from '../actions/postsActions'
+import axiosWithAuth from '../utils/axiosWithAuth'
 
-const HomeFeed = ({ getPosts }) => {
+const HomeFeed = ({ getPosts}) => {
 
-    const { push } = useHistory();
-
-    const handleChange = () => {
-        console.log('change!')
-        // getPosts()
+    const loadPosts = () => {
+        getPosts()
     }
 
     return (
         <StyledFeed>
             <div className='container'>
                 <p>expat </p>
-                <button onClick={handleChange} className='loadFeed'>load feed</button>
+                <button onClick={loadPosts} className='loadFeed'>load feed</button>
             </div>
         </StyledFeed>
         
     )
 }
 
-export default HomeFeed;
+export default connect(null, { getPosts })(HomeFeed);
