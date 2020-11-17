@@ -1,10 +1,11 @@
-import { bindActionCreators } from 'redux'
+import React from 'react'
 import axiosWithAuth from '../utils/axiosWithAuth'
+
 
 export const GET_POSTS = 'GET_POSTS'
 
 export const getPosts = () => {
-    return(dispatch) => {
+     return(dispatch) => {
 
         axiosWithAuth()
             .get('/posts')
@@ -16,5 +17,3 @@ export const getPosts = () => {
                 console.log('error', err.response)
             })
     }
-    
-}

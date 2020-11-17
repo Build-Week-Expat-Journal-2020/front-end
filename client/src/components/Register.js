@@ -7,10 +7,6 @@ import axios from 'axios'
 import * as yup from 'yup'
 import schema from '../validation/registerFormSchema'
 
-// --- Needs form to register user
-// --- Unit 2 do JSX with local state
-// --- for formValues and form validations
-
 import { registerUser } from '../actions/registerActions'
 
 const initialValues = {
@@ -74,6 +70,8 @@ return (
             <div className='addUserForm'>
                 <h3>Create Username</h3>
                 <p>Pick a username for your new account. You can always change it later.</p>
+                <p className="error">{errors.username}</p>
+                <p className="error">{errors.password}</p>
                 <form onSubmit={handleSubmit}>
                 <input
                 type='text'
@@ -82,7 +80,7 @@ return (
                 value={newUser.username}
                 onChange={handleChange}
                 />
-                <p>{errors.username}</p>
+                
                 <input 
                 type='password'
                 name='password'
@@ -90,8 +88,9 @@ return (
                 value={newUser.password}
                 onChange={handleChange}
                 />
-                <p>{errors.password}</p>
+  
                 <button className='submit' disabled={disabled}>sign up</button>
+
                 </form>
             </div> 
         </div>

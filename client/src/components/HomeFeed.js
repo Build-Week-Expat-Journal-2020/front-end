@@ -1,7 +1,9 @@
+
 import { StyledFeed } from '../StyledComponents/StyledPosts'
 import { connect } from 'react-redux';
 import { getPosts } from '../actions/postsActions'
 import axiosWithAuth from '../utils/axiosWithAuth'
+
 
 const HomeFeed = ({ getPosts}) => {
 
@@ -10,6 +12,7 @@ const HomeFeed = ({ getPosts}) => {
     }
 
     return (
+
         <StyledFeed>
             <div className='container'>
                 <p>expat </p>
@@ -17,6 +20,7 @@ const HomeFeed = ({ getPosts}) => {
             </div>
         </StyledFeed>
         
+
     )
 }
 
