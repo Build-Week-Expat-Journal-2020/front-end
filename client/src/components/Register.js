@@ -28,7 +28,7 @@ const Register = ({ registerUser }) => {
 const [newUser, setNewUser] = useState(initialValues)
 const [disabled,setDisabled] = useState(true);
 const [errors,setErrors] = useState(initialErrors);
-const history = useHistory()
+const history = useHistory();
 
 const handleChange = (evt) => {
 //Validation Changes
@@ -91,7 +91,7 @@ return (
                 onChange={handleChange}
                 />
                 <p>{errors.password}</p>
-                <button className='submit'>sign up</button>
+                <button className='submit' disabled={disabled}>sign up</button>
                 </form>
             </div> 
         </div>
