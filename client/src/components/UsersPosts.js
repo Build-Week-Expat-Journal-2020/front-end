@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { getUsersPosts } from '../actions/usersPostsActions';
 import { connect } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import Post from './Post';
 
 const UsersPosts = (props) => {
-    
+    const { id } = useParams();
+
     useEffect(() => {
-        props.getUsersPosts(props.user_id);
+        props.getUsersPosts(id);
     }, []);
       
 
@@ -18,14 +21,7 @@ const UsersPosts = (props) => {
             
                 {
                    props.usersPosts.map((post) => (
-                       <div>
-                            <div>
-                                <img src={post.photo} alt=""/>
-                            </div>
-                            <div>
-                                <p>{post.story}</p>
-                            </div>
-                       </div>
+                       <Post post={post} />
                    )) 
                 }
             </div>

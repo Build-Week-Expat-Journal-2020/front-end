@@ -17,7 +17,7 @@ function App() {
        
       <Switch>
         <PrivateRoute path="/homefeed" component={HomeFeed}/>
-        <PrivateRoute path="/usersposts" component={UsersPosts}/>
+        <PrivateRoute path="/usersposts/:id" component={UsersPosts}/>
         <Route path="/register" component={Register}/>
         <Route path="/" component={Login} />
       </Switch>

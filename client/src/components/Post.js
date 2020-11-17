@@ -41,14 +41,16 @@ const StyledPost = styled.div `
 const Post = ({ post }) => {
 
     return (
-        <StyledPost>
-            <div className="post-container">
-            <Link to="/usersposts" ><div className="user-name">{post.posted_by}</div></Link>
-            <img src={post.photo}/>
-            <div className="story">{post.story}</div>
-            </div>
-        </StyledPost>
-    )
+      <StyledPost>
+        <div className="post-container">
+          <Link to={`/usersposts/${post.user_id}`}>
+            <div className="user-name">{post.posted_by}</div>
+          </Link>
+          <img src={post.photo} alt="post" />
+          <div className="story">{post.story}</div>
+        </div>
+      </StyledPost>
+    );
 }
 
 export default Post;
