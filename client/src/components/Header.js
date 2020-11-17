@@ -1,6 +1,9 @@
 import {Heading} from "../StyledComponents/StyledHeader";
 import {Link,useHistory} from "react-router-dom";
 
+const logout = () => {
+    localStorage.clear();
+}
 
 const Header = () => {
     const history = useHistory();
@@ -14,7 +17,7 @@ const Header = () => {
                 </div>
                 <div>
                 <span>Log out&nbsp;
-                <Link to = "/"><i className={`fa fa-sign-out`}></i></Link>
+                <Link to = "/" onClick={()=>logout()}><i className={`fa fa-sign-out`}></i></Link>
                 
                 </span>  
                 </div>
