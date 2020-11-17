@@ -3,7 +3,7 @@ import { StyledFeed } from '../StyledComponents/StyledPosts'
 import { connect } from 'react-redux';
 import { getPosts } from '../actions/postsActions'
 import React, { useEffect, useState } from 'react'
-
+import Post from './Post';
 
 const HomeFeed = (props) => {
 
@@ -53,12 +53,13 @@ const HomeFeed = (props) => {
                 {props.posts.map(post => {
                     return (
                         <div>
-                        <img key={post.id} width='200px' src={post.photo}/>
+                            <Post key={post.id} post={post} />
                         </div>
                     )
                 })}
                 </div>
             </div>
+            
         </StyledFeed>
     )
 }
