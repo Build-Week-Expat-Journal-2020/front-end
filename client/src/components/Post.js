@@ -41,6 +41,7 @@ const StyledPost = styled.div `
 const Post = ({ post }) => {
 
     return (
+
       <StyledPost>
         <div className="post-container">
           <Link to={`/usersposts/${post.user_id}`}>
@@ -51,6 +52,8 @@ const Post = ({ post }) => {
         </div>
       </StyledPost>
     );
+
 }
 
 export default Post;
+

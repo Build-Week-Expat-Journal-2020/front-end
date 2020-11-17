@@ -8,30 +8,37 @@ const UsersPosts = (props) => {
     const { id } = useParams();
 
     useEffect(() => {
+
         props.getUsersPosts(id);
+
     }, []);
       
+    // username of clicked = username 
+    // set url to /${username}
+    //this url renders usersPosts
 
     return (
         <div>
             <div>
-            <h2 style={{color: 'white'}}>This is an individual users page</h2>
+    <h2 style={{color: 'white'}}>{props.user_id}This is an individual users page</h2>
             </div>
-            <div>
+            {/* <div>
             
                 {
                    props.usersPosts.map((post) => (
+
                        <Post post={post} />
+
                    )) 
                 }
-            </div>
+            </div> */}
         </div>
     )
 }
 
 const mapStateToProps = (state) => {
     return {
-        usersPosts: state.usersPosts
+        user_id: state.posts.user_id
     }
 }
 
