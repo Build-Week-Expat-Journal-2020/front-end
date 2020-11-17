@@ -4,16 +4,15 @@ import { connect } from 'react-redux';
 
 const UsersPosts = (props) => {
     
-    
-    const getPosts = () => {
-        
+    useEffect(() => {
         props.getUsersPosts(props.user_id);
-    }   
+    }, []);
+      
 
     return (
         <div>
             <div>
-            <h2 style={{color: 'white'}} onClick={()=> getPosts()} >This is an individual users page</h2>
+            <h2 style={{color: 'white'}}>This is an individual users page</h2>
             </div>
             <div>
             
@@ -40,4 +39,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, getUsersPosts)(UsersPosts);
+export default connect(mapStateToProps, { getUsersPosts })(UsersPosts);
