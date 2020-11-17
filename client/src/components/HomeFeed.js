@@ -2,26 +2,31 @@
 import { StyledFeed } from '../StyledComponents/StyledPosts'
 import { connect } from 'react-redux';
 import { getPosts } from '../actions/postsActions'
-import axiosWithAuth from '../utils/axiosWithAuth'
+import React, { useEffect } from 'react'
 
 
-const HomeFeed = ({ getPosts}) => {
+const HomeFeed = (props) => {
 
-    const loadPosts = () => {
-        getPosts()
-    }
+    useEffect(() => {
+        props.getPosts()
+        console.log('posts', props.posts)
+     }, [])
 
     return (
 
         <StyledFeed>
             <div className='container'>
                 <p>expat </p>
-                <button onClick={loadPosts} className='loadFeed'>load feed</button>
+                <button className='loadFeed'>load feed</button>
             </div>
         </StyledFeed>
-        
-
     )
 }
 
-export default connect(null, { getPosts })(HomeFeed);
+const mapStateToProps = (state) => {
+    return {
+        posts: state.posts,
+    }
+}
+
+export default connect(mapStateToProps, { getPosts })(HomeFeed);
