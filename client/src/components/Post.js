@@ -1,6 +1,14 @@
 
 
-// --- Needs and image and a text block
-// --- with username link to profile
-// --- edit and delete button 
-// --- edit form to appear on edit click
+const Post = ({ post }) => {
+
+    return (
+        <div>
+            <div>{post.username}</div>
+            <div>{post.photo}</div>
+            <div>{post.story}</div>
+        </div>
+    )
+}
+
+export default Post;
