@@ -22,7 +22,7 @@ const StyledPost = styled.div `
         width: 75%;
         border: 1px solid white;
         margin: 2rem 0;
-        border-radius: 5px;
+        border-radius: 3px;
         background-color: white;
     }
     img {
