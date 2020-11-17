@@ -9,12 +9,13 @@ export const login = (user) => {
         axiosWithAuth()
             .post('/auth/login', user)
             .then(res => {
-                console.log(user)
-                localStorage.setItem("token", res.data.payload);
+                localStorage.setItem("token", res.data.token);
                 dispatch({ type: LOGIN, payload: res.data }); 
-                console.log('data', res.data) 
+                console.log('data', res.data, res.data.token) 
             })
-            .catch(err => console.log(err.response))
+            .catch(err => {
+                console.log(err.response)
+            })
     };
 }   
 

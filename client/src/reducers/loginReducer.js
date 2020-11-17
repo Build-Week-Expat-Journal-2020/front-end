@@ -1,7 +1,10 @@
 import { LOGIN } from '../actions/loginActions';
 
 const initialState = {
-    currentUser : {}
+    currentUser : {
+        username: '',
+        token: ''
+    }
 }
 
 export const loginReducer = (state = initialState, action) => {
