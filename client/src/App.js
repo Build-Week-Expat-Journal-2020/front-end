@@ -5,6 +5,7 @@ import Header from './components/Header'
 import Login from './components/Login'
 import PrivateRoute from './utils/PrivateRoute'
 import UsersPosts from './components/UsersPosts'
+import SinglePost from './components/SinglePost'
 import { Link } from 'react-router-dom'
 
 
@@ -18,6 +19,7 @@ function App() {
       <Switch>
         <PrivateRoute path="/homefeed" component={HomeFeed}/>
         <PrivateRoute path="/usersposts" component={UsersPosts}/>
+        <PrivateRoute path="/post/:id" component={SinglePost}/>
         <Route path="/register" component={Register}/>
         <Route path="/" component={Login} />
       </Switch>

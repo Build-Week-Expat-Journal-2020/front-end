@@ -43,8 +43,8 @@ const Post = ({ post }) => {
     return (
         <StyledPost>
             <div className="post-container">
-            <Link to="/usersposts" ><div className="user-name">{post.posted_by}</div></Link>
-            <img src={post.photo}/>
+    <Link to={`/usersposts`} ><div className="user-name">{post.posted_by}</div></Link>
+            <Link to={`/post/${post.id}`}><img src={post.photo}/></Link>
             <div className="story">{post.story}</div>
             </div>
         </StyledPost>
@@ -52,3 +52,4 @@ const Post = ({ post }) => {
 }
 
 export default Post;
+
