@@ -2,6 +2,7 @@ import { LOGIN } from '../actions/loginActions'
 import { REGISTER_USER } from '../actions/registerActions'
 import { GET_POSTS } from '../actions/postsActions'
 import { USERS_POSTS } from '../actions/usersPostsActions';
+import { CREATE_POSTS } from '../actions/createPostActions';
 
 const initialstate = {
   currentUser: {},
@@ -37,6 +38,11 @@ export const reducer = (state = initialstate, action) => {
       return {
           ...state, 
           usersPosts: action.payload
+      }
+    case CREATE_POSTS: 
+      return {
+        ...state,
+        posts: action.payload
       }
     default: 
       return state
