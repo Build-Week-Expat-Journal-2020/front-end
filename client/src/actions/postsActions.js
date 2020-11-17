@@ -17,3 +17,4 @@ export const getPosts = () => {
                 console.log('error', err.response)
             })
     }
+}
