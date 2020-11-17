@@ -1,18 +1,27 @@
-import styled from 'styled-components';
-import UsersPosts from './UsersPosts';
 
-const StyledFeed = styled.div `
-    color: white;
+import { StyledFeed } from '../StyledComponents/StyledPosts'
+import { connect } from 'react-redux';
+import { getPosts } from '../actions/postsActions'
+import axiosWithAuth from '../utils/axiosWithAuth'
 
-`
-const HomeFeed = () => {
+
+const HomeFeed = ({ getPosts}) => {
+
+    const loadPosts = () => {
+        getPosts()
+    }
 
     return (
-        <div>
-            <StyledFeed>This is your home feed</StyledFeed>
-            
-        </div>
+
+        <StyledFeed>
+            <div className='container'>
+                <p>expat </p>
+                <button onClick={loadPosts} className='loadFeed'>load feed</button>
+            </div>
+        </StyledFeed>
+        
+
     )
 }
 
-export default HomeFeed;
+export default connect(null, { getPosts })(HomeFeed);

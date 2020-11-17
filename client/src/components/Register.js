@@ -7,10 +7,6 @@ import axios from 'axios'
 import * as yup from 'yup'
 import schema from '../validation/registerFormSchema'
 
-// --- Needs form to register user
-// --- Unit 2 do JSX with local state
-// --- for formValues and form validations
-
 import { registerUser } from '../actions/registerActions'
 
 const initialValues = {
@@ -28,7 +24,7 @@ const Register = ({ registerUser }) => {
 const [newUser, setNewUser] = useState(initialValues)
 const [disabled,setDisabled] = useState(true);
 const [errors,setErrors] = useState(initialErrors);
-const history = useHistory()
+const history = useHistory();
 
 const handleChange = (evt) => {
 //Validation Changes
@@ -50,6 +46,7 @@ const handleChange = (evt) => {
     setNewUser({...newUser,[name]:value})
     
 //End Validation Changes
+
 
 } // END HANDLE CHANGES
 
@@ -91,13 +88,14 @@ return (
                 value={newUser.password}
                 onChange={handleChange}
                 />
-                
-                <button className='submit'>sign up</button>
+  
+                <button className='submit' disabled={disabled}>sign up</button>
+
                 </form>
             </div> 
         </div>
     </StyledRegister>
-)
+    )
 }
 
 

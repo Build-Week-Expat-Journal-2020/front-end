@@ -67,5 +67,11 @@ const handleSubmit = e => {
     )
 }
 
-export default connect(null, { login })(Login);
+const mapStateToProps = (state) => {
+    return {
+        currentUser: state.currentUser
+    }
+}
+
+export default connect(mapStateToProps, { login })(Login);
 
