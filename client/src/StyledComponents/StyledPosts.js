@@ -37,9 +37,9 @@ export const StyledFeed = styled.div `
 
     }
 
-    .postsContainer {
+    /* .postsContainer {
         display: flex;
         flex-wrap: wrap;
-   }
+   } */
 
 `
