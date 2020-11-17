@@ -42,7 +42,7 @@ export const reducer = (state = initialstate, action) => {
     case CREATE_POSTS: 
       return {
         ...state,
-        posts: action.payload
+        posts: [...state.posts, action.payload]
       }
     default: 
       return state

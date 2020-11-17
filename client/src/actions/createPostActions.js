@@ -11,8 +11,8 @@ export const createPost = (newPost) => {
             .post('/posts', newPost)
             .then(res => {
 
-                dispatch({ type: CREATE_POSTS, payload: res.data})
                 console.log('data', res.data) 
+                dispatch({ type: CREATE_POSTS, payload: res.data})
             })
             .catch(err => {
                 console.log('error', err.response)

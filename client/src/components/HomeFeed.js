@@ -11,17 +11,15 @@ const HomeFeed = (props) => {
     const initialValues = {
         photo: '',
         story:'',
-        id: '',
         user_id: '',
-        posted_by: '',
     }
 
     const [newPost, setNewPosts] = useState(initialValues)
 
     useEffect(() => {
         props.getPosts()
-        console.log('posts', props.posts)
-     }, [])
+        console.log("Current user: ", props.currentUser);
+    }, [])
 
      const handleChange = e => {
         setNewPosts({...newPost, [e.target.name]: e.target.value})
@@ -29,8 +27,7 @@ const HomeFeed = (props) => {
 
      const handleSubmit = e => {
         e.preventDefault()
-        props.createPost(newPost)
-        console.log('post info!',newPost)
+        props.createPost({...newPost, user_id: props.currentUser.id })
      }
 
     return (
@@ -71,6 +68,7 @@ const HomeFeed = (props) => {
 
 const mapStateToProps = (state) => {
     return {
+        currentUser: state.currentUser,
         posts: state.posts,
     }
 }

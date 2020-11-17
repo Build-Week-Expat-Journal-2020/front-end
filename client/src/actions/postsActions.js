@@ -9,7 +9,6 @@ export const getPosts = () => {
             .get('/posts')
             .then(res => {
                 dispatch({ type: GET_POSTS, payload: res.data})
-                console.log('data', res.data) 
             })
             .catch(err => {
                 console.log('error', err.response)
