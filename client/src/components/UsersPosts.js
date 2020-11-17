@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { getUsersPosts } from '../actions/usersPostsActions';
 import { connect } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import Post from './Post';
 
 const UsersPosts = (props) => {
-    
+    const { id } = useParams();
+
     useEffect(() => {
-        console.log(props.user_id);
-        props.getUsersPosts(props.user_id);
+
+        props.getUsersPosts(id);
+
     }, []);
       
     // username of clicked = username 
@@ -22,16 +26,9 @@ const UsersPosts = (props) => {
             
                 {
                    props.usersPosts.map((post) => (
-                       <div>
-                            <div>
-                                <img src={post.posted_by} alt=""/>
-                            </div>
-                            <div>
-                                <div>
-                                <p>{post.story}</p>
-                                </div>
-                            </div>
-                       </div>
+
+                       <Post post={post} />
+
                    )) 
                 }
             </div> */}
