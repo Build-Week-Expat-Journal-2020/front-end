@@ -46,4 +46,9 @@ export const StyledRegister = styled.div`
         border-radius: 0.3rem;
     }
 
+    .error {
+        color: red;
+        font-weight: bold;
+    }
+
 `

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import UsersPosts from './UsersPosts';
 
 const StyledFeed = styled.div `
     color: white;
@@ -7,7 +8,10 @@ const StyledFeed = styled.div `
 const HomeFeed = () => {
 
     return (
-        <StyledFeed>This is your home feed</StyledFeed>
+        <div>
+            <StyledFeed>This is your home feed</StyledFeed>
+            
+        </div>
     )
 }
 
