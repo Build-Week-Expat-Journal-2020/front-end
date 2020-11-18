@@ -1,8 +1,7 @@
-import { connect } from 'react-redux';
 import axiosWithAuth from '../utils/axiosWithAuth'
 
 export const USERS_POSTS = 'USERS_POSTS'
-//need to get the user_id for these posts. useParams?
+
 export const getUsersPosts = (user_id) => {
     return(dispatch) => {
 
