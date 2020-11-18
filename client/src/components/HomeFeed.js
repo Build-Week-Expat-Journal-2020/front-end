@@ -56,7 +56,6 @@ const HomeFeed = (props) => {
                     return (
                         
                             <Post key={post.id} post={post} />
-                        
                     )
                 })}
                 </div>

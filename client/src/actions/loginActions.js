@@ -3,7 +3,7 @@ import axiosWithAuth from '../utils/axiosWithAuth';
 export const LOGIN = "LOGIN";
 
 export const login = (user) => {
-  
+
     return(dispatch) => {
 
         axiosWithAuth()

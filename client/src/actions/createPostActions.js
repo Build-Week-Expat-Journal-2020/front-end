@@ -5,8 +5,6 @@ export const CREATE_POSTS = 'CREATE_POSTS'
 export const createPost = (newPost) => {
      return(dispatch) => {
 
-        console.log('new post?',newPost)
-
         return axiosWithAuth()
             .post('/posts', newPost)
             .then(res => {
