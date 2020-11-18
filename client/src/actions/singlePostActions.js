@@ -8,7 +8,8 @@ export const getSinglePost = (id) => {
         return axiosWithAuth()
             .get(`/posts/${id}`)
             .then(res => {
-                dispatch({ type: GET_SINGLE_POST, payload: res.data})
+                console.log(res.data);
+                return dispatch({ type: GET_SINGLE_POST, payload: res.data})
             })
             .catch(err => {
                 console.log('error', err.response)
