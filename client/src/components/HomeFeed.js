@@ -54,9 +54,9 @@ const HomeFeed = (props) => {
                 <div className='postsContainer'>
                 {props.posts.map(post => {
                     return (
-                        <div>
+                        
                             <Post key={post.id} post={post} />
-                        </div>
+                        
                     )
                 })}
                 </div>
