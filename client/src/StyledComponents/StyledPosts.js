@@ -2,6 +2,10 @@ import styled from 'styled-components'
 
 export const StyledFeed = styled.div `
 
+    .editButton {
+        
+    }
+
     form {
         display: flex;
         flex-direction: column;
