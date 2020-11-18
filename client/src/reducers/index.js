@@ -5,6 +5,7 @@ import { USERS_POSTS } from '../actions/usersPostsActions';
 import { CREATE_POSTS } from '../actions/createPostActions';
 import { GET_SINGLE_POST } from '../actions/singlePostActions';
 import { DELETE_POST } from '../actions/deleteActions'
+import { EDIT_POST } from '../actions/editActions'
 
 const initialstate = {
   currentUser: {},
@@ -46,10 +47,16 @@ export const reducer = (state = initialstate, action) => {
         ...state,
         singlePost: action.payload
       }
+
     case DELETE_POST: 
       return {
         ...state, 
         posts: state.posts.filter(item => item !== action.payload)
+      }
+    case EDIT_POST:
+      return {
+        ...state,
+        posts: action.payload
       }
     default: 
       return state
