@@ -49,7 +49,7 @@ export const reducer = (state = initialstate, action) => {
     case DELETE_POST: 
       return {
         ...state, 
-        posts: action.payload
+        posts: state.posts.filter(item => item !== action.payload)
       }
     default: 
       return state

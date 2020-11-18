@@ -20,8 +20,10 @@ const SinglePost = (props) => {
     }
 
     const handleDelete = () => {
+        if(props.currentUser.username !== props.post.posted_by) {
+            alert('not your post!')
+        }
         props.deletePost(id)
-        props.getPosts()
         push('/homefeed')
     }
 
@@ -36,7 +38,9 @@ const SinglePost = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        post: state.singlePost
+        post: state.singlePost,
+        currentUser: state.currentUser,
+        users: state.users,
     }
 }
 
