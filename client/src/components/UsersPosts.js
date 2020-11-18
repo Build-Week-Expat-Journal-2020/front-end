@@ -17,7 +17,7 @@ const UsersPosts = (props) => {
         <StyledPost>
             <div>
                 <div className='postedBy'>
-                    <h3 style={{color: 'white'}}>{props.usersPosts[0].posted_by} </h3>
+                    <h3 style={{color: 'white'}}>User Name</h3>
                 </div>
                 <div>
                     {

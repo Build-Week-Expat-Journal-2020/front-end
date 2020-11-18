@@ -11,11 +11,13 @@ const Post = ({ post }) => {
           <div className='postContainer'>
             <div className='userName'>
               <Link to={`/usersposts/${post.user_id}`}>
-              {post.posted_by}
-            </Link>
+                {post.posted_by}
+              </Link>
             </div>
             <div className='postImg'>
-              <img src={post.photo} alt="post"  />
+              <Link to={`/post/${post.id}`}>
+                <img src={post.photo} alt="post"  />
+              </Link>
             </div>
             <div className="story">
               {post.story}
