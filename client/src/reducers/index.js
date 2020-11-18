@@ -53,6 +53,11 @@ export const reducer = (state = initialstate, action) => {
         ...state,
         singlePost: action.payload
       }
+    case EDIT_POST:
+      return {
+        ...state,
+        posts: action.payload
+      }
     default: 
       return state
   }
