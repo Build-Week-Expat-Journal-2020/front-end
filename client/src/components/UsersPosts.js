@@ -3,6 +3,7 @@ import { getUsersPosts } from '../actions/usersPostsActions';
 import { connect } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import Post from './Post';
+import { StyledPost } from '../StyledComponents/StyledPost'
 
 const UsersPosts = (props) => {
     const { id } = useParams();
@@ -13,25 +14,26 @@ const UsersPosts = (props) => {
       
 
     return (
-        <div>
+        <StyledPost>
             <div>
-            <h2 style={{color: 'white'}}>This is an individual users page</h2>
+                <div className='postedBy'>
+                    <h3 style={{color: 'white'}}>{props.usersPosts[0].posted_by} </h3>
+                </div>
+                <div>
+                    {
+                    props.usersPosts.map((post) => (
+                        <Post post={post} />
+                    )) 
+                    }
+                </div>
             </div>
-            <div>
-            
-                {
-                   props.usersPosts.map((post) => (
-                       <Post post={post} />
-                   )) 
-                }
-            </div>
-        </div>
+        </StyledPost>
     )
 }
 
 const mapStateToProps = (state) => {
     return {
-        usersPosts: state.usersPosts
+        usersPosts: state.usersPosts,
     }
 }
 
