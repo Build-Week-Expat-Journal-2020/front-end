@@ -18,8 +18,6 @@ const SinglePost = (props) => {
     )
 }
 
-
-
 const mapStateToProps = (state) => {
     return {
         post: state.singlePost
