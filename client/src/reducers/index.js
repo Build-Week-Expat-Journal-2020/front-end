@@ -56,7 +56,7 @@ export const reducer = (state = initialstate, action) => {
     case EDIT_POST:
       return {
         ...state,
-        posts: state.posts.map(post => action.payload.id ? action.payload : post)
+        posts: state.posts.map(post => post.id === action.payload.id ? action.payload : post)
       }
     default: 
       return state
